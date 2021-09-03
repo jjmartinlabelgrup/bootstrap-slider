@@ -1957,7 +1957,9 @@ const windowIsDefined = (typeof window === "object");
 				this.$sliderElem.off();
 			},
 			_setText: function(element, text) {
-				if(typeof element.textContent !== "undefined") {
+				if(typeof element.innerHTML !== "undefined") {
+					element.innerHTML = text;
+				} else if(typeof element.textContent !== "undefined") {
 					element.textContent = text;
 				} else if(typeof element.innerText !== "undefined") {
 					element.innerText = text;
